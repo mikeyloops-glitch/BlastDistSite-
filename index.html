@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blast Distribution · Skateboard Setup Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">Blast Distribution · 2026 Preview</p>
+      <h1>Help every rider land on the right setup in three taps.</h1>
+      <p class="lead">Educate shoppers, auto-build bundles, and hand sales a ready-to-close lead with a data-backed recommendation.</p>
+      <div class="hero__ctas">
+        <button class="btn primary" onclick="scrollToFinder()">Launch setup finder</button>
+        <button class="btn ghost" onclick="scrollToSection('personas')">See personas</button>
+      </div>
+      <div class="stat-row">
+        <div>
+          <h3>+37%</h3>
+          <p>conversion lift in pilot stores</p>
+        </div>
+        <div>
+          <h3>120+</h3>
+          <p>brands mapped to fit profiles</p>
+        </div>
+        <div>
+          <h3><span class="accent">Live demo ready</span></h3>
+          <p>Vercel-ready bundle</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero__panel">
+      <p class="panel-title">Live outputs</p>
+      <ul class="panel-list">
+        <li><strong>Deck width:</strong> 8.125–8.25" (Street Control)</li>
+        <li><strong>Truck size:</strong> 139 mm Hollow</li>
+        <li><strong>Wheels:</strong> 53 mm · 99a · Dragon Formula</li>
+        <li><strong>Bushings:</strong> 90a / 92a split</li>
+        <li><strong>CTA:</strong> Auto-build bundle + talk to sales</li>
+      </ul>
+      <p class="panel-note">Generated from shoe size, weight, height, style, skill.</p>
+    </div>
+  </header>
+
+  <section class="section" id="why">
+    <div class="section__header">
+      <p class="eyebrow">Why Blast 2.0</p>
+      <h2>Borrow what works from the wholesale portal, add a smarter guided shop.</h2>
+      <p>The new site keeps the brand-first catalog you already run on b2b.blast-distribution.it but wraps it in a rider-friendly flow that educates and converts.</p>
+    </div>
+    <div class="grid three">
+      <article class="card">
+        <h3>Keep</h3>
+        <p>Brand carousel, rich taxonomy (Skate / Longboard / Protection), and trust cues for retailers.</p>
+      </article>
+      <article class="card">
+        <h3>Improve</h3>
+        <p>Add guided filters (width, wheel size, skill) + cross-sells so PDPs tell shoppers exactly what else they need.</p>
+      </article>
+      <article class="card">
+        <h3>Change</h3>
+        <p>Lead with the setup finder + educational stories. No login wall for marketing pages, faster CTAs for sales.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="finder">
+    <div class="section__header">
+      <p class="eyebrow">Setup finder</p>
+      <h2>Let the rider answer five questions. We’ll do the rest.</h2>
+      <p>Inputs are mapped to the research-backed matrix (Boardcoast size guide + Stoked Ride Shop component ranges). Output cards can push shoppers straight into curated completes or bundle builders.</p>
+    </div>
+    <div class="finder">
+      <form id="setup-form">
+        <label>Shoe size (US)
+          <input type="number" name="shoe" min="4" max="15" step="0.5" required />
+        </label>
+        <label>Weight (kg)
+          <input type="number" name="weight" min="35" max="120" required />
+        </label>
+        <label>Height (cm)
+          <input type="number" name="height" min="140" max="210" required />
+        </label>
+        <label>Riding style
+          <select name="style" required>
+            <option value="street">Street / Tech</option>
+            <option value="all">All-around</option>
+            <option value="bowl">Bowl / Park</option>
+            <option value="vert">Vert / Ramp</option>
+            <option value="cruise">Cruiser / Commute</option>
+          </select>
+        </label>
+        <label>Skill level
+          <select name="skill" required>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </label>
+        <button class="btn primary" type="submit">Generate recommendation</button>
+      </form>
+      <div id="results" class="results hidden">
+        <h3>Your fit</h3>
+        <div class="result-cards" id="result-cards"></div>
+        <div class="cta-row">
+          <button class="btn primary">View curated complete</button>
+          <button class="btn ghost">Talk to sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="personas">
+    <div class="section__header">
+      <p class="eyebrow">Personas</p>
+      <h2>Every output maps to a buyer story + ready-to-sell bundle.</h2>
+      <p>Use these cards in decks, PDPs, and sales collateral.</p>
+    </div>
+    <div class="grid three" id="persona-grid"></div>
+  </section>
+
+  <section class="section" id="next">
+    <div class="grid two">
+      <article class="card">
+        <h2>Roadmap to go live</h2>
+        <ul class="checklist">
+          <li><span>✓</span> Research + recommendation matrix</li>
+          <li><span>✓</span> Front-end proof-of-concept</li>
+          <li><span>→</span> Wire repo to Vercel + CMS seeds</li>
+          <li><span>→</span> Product data ingestion + CRM triggers</li>
+        </ul>
+      </article>
+      <article class="card accent">
+        <h2>What you’ll show Blast</h2>
+        <p>Live calculator, refreshed hero, persona bundles, and a staged CTA that routes into sales or auto-builds a cart. Drop the Vercel link into the call and let the client click through in real time.</p>
+        <button class="btn primary" onclick="alert('Staging deploy happens via Vercel once repo is connected.')">Deploy via Vercel</button>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Blast Distribution · Demo experience for buyer conversations</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
