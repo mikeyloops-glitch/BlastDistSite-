@@ -20,60 +20,29 @@ const categories = [
 
 const brands = ['Opera VX', 'Independent', 'Krux', 'OJ Wheels', 'Ricta', 'Bones', 'TSG', 'Landyachtz', 'Creature', 'Santa Cruz', 'The Heart Supply', 'Zero'];
 
-const grad = (a, b) => `linear-gradient(135deg, ${a}, ${b})`;
+const makeThumb = (label, bg = '1b1d2a') => `https://dummyimage.com/320x180/${bg}/ffffff&text=${encodeURIComponent(label)}`;
+
+const makeThumb = (label, bg = '1b1d2a') => ;
+
 
 const catalog = [
-  {
-    sku: 'OPR-VX-825', category: 'Decks', brand: 'Opera VX', title: 'VX Team Spectrum 8.25', spec: '8.25" · 14.25" WB · VX fiber', style: ['Street', 'All-around'], width: 8.25, stock: 'in', thumb: grad('#ff9a9e','#fad0c4')
-  },
-  {
-    sku: 'OPR-VX-875', category: 'Decks', brand: 'Opera VX', title: 'VX Shaped 8.75', spec: '8.75" · 14.5" WB · point nose', style: ['Bowl', 'Vert'], width: 8.75, stock: 'low', thumb: grad('#a18cd1','#fbc2eb')
-  },
-  {
-    sku: 'OPR-EGG-800', category: 'Decks', brand: 'Opera VX', title: 'Egg Tech 8.0', spec: '8.0" · 14" WB · mellow', style: ['Street'], width: 8.0, stock: 'in', thumb: grad('#f6d365','#fda085')
-  },
-  {
-    sku: 'IND-HOLLOW-139', category: 'Trucks', brand: 'Independent', title: 'Stage XI Forged Hollow 139', spec: 'Mid · 8.0-8.25" decks', style: ['Street', 'All-around'], width: 139, stock: 'in', thumb: grad('#667eea','#764ba2')
-  },
-  {
-    sku: 'IND-HOLLOW-144', category: 'Trucks', brand: 'Independent', title: 'Stage XI Forged Hollow 144', spec: 'Mid · 8.25-8.4" decks', style: ['All-around'], width: 144, stock: 'low', thumb: grad('#89f7fe','#66a6ff')
-  },
-  {
-    sku: 'KRUX-DL-8.5', category: 'Trucks', brand: 'Krux DLK', title: 'DLK Hi 8.5', spec: 'Hi · 8.5" decks · park ready', style: ['Bowl', 'Vert'], width: 149, stock: 'in', thumb: grad('#cfd9df','#e2ebf0')
-  },
-  {
-    sku: 'OJ-ELITE-53', category: 'Wheels', brand: 'OJ Elite', title: 'Elite Hardline 53mm 99a', spec: 'Street profile · V-cut', style: ['Street'], diameter: 53, duro: 99, stock: 'in', thumb: grad('#f093fb','#f5576c')
-  },
-  {
-    sku: 'OJ-ELITE-56', category: 'Wheels', brand: 'OJ Elite', title: 'Elite Mini Combo 56mm 97a', spec: 'Bowl profile · rounded lip', style: ['All-around', 'Bowl'], diameter: 56, duro: 97, stock: 'low', thumb: grad('#5ee7df','#b490ca')
-  },
-  {
-    sku: 'CRUISER-60-78', category: 'Wheels', brand: 'Flare', title: 'Flare Cruiser 60mm 78a', spec: 'Soft urethane · stoneground', style: ['Cruise'], diameter: 60, duro: 78, stock: 'in', thumb: grad('#43e97b','#38f9d7')
-  },
-  {
-    sku: 'BONES-SS', category: 'Bearings', brand: 'Bones', title: 'Bones Super Swiss 6', spec: 'Built for speed', style: ['All-around', 'Vert'], stock: 'low', thumb: grad('#fa709a','#fee140')
-  },
-  {
-    sku: 'FIREBALL-BUILT', category: 'Bearings', brand: 'Fireball', title: 'Dragon BUILT Ceramic', spec: 'Built-in spacers', style: ['Cruise', 'Downhill'], stock: 'in', thumb: grad('#30cfd0','#330867')
-  },
-  {
-    sku: 'VENOM-HPF-92', category: 'Bushings', brand: 'Venom', title: 'HPF Street 92a', spec: 'Barrel/Cone set', style: ['Street'], stock: 'in', thumb: grad('#bdc2e8','#e6dee9')
-  },
-  {
-    sku: 'VENOM-HPF-94', category: 'Bushings', brand: 'Venom', title: 'HPF Downhill 94a', spec: 'Double barrel', style: ['Bowl', 'Vert'], stock: 'backorder', thumb: grad('#f8b195','#f67280')
-  },
-  {
-    sku: 'GRIP-MOB-11', category: 'Hardware', brand: 'Mob', title: 'Mob Grip 11" Roll', spec: 'Perforated · clear backing', style: ['All-around'], stock: 'in', thumb: grad('#2980B9','#6DD5FA')
-  },
-  {
-    sku: 'KIT-STARTER', category: 'Hardware', brand: 'Blast Kits', title: 'Starter Hardware Kit', spec: 'Bolts + spacers + risers', style: ['Street', 'Cruise'], stock: 'in', thumb: grad('#f7971e','#ffd200')
-  },
-  {
-    sku: 'TSG-HELMET', category: 'Apparel', brand: 'TSG', title: 'TSG Evolution Matte', spec: 'Certified helmet', style: ['Bowl', 'Vert'], stock: 'low', thumb: grad('#d9a7c7','#fffcdc')
-  }
+  { sku: 'OPR-VX-825', category: 'Decks', brand: 'Opera VX', title: 'VX Team Spectrum 8.25', spec: '8.25" · 14.25" WB · VX fiber', style: ['Street', 'All-around'], width: 8.25, stock: 'in', thumb: makeThumb('Deck 8.25','1b1d2a') },
+  { sku: 'OPR-VX-875', category: 'Decks', brand: 'Opera VX', title: 'VX Shaped 8.75', spec: '8.75" · 14.5" WB · point nose', style: ['Bowl', 'Vert'], width: 8.75, stock: 'low', thumb: makeThumb('Deck 8.75','311a25') },
+  { sku: 'OPR-EGG-800', category: 'Decks', brand: 'Opera VX', title: 'Egg Tech 8.0', spec: '8.0" · 14" WB · mellow', style: ['Street'], width: 8.0, stock: 'in', thumb: makeThumb('Deck 8.0','262c3a') },
+  { sku: 'IND-HOLLOW-139', category: 'Trucks', brand: 'Independent', title: 'Stage XI Forged Hollow 139', spec: 'Mid · 8.0-8.25" decks', style: ['Street', 'All-around'], width: 139, stock: 'in', thumb: makeThumb('Truck 139','1a2a2d') },
+  { sku: 'IND-HOLLOW-144', category: 'Trucks', brand: 'Independent', title: 'Stage XI Forged Hollow 144', spec: 'Mid · 8.25-8.4" decks', style: ['All-around'], width: 144, stock: 'low', thumb: makeThumb('Truck 144','29252f') },
+  { sku: 'KRUX-DL-8.5', category: 'Trucks', brand: 'Krux DLK', title: 'DLK Hi 8.5', spec: 'Hi · 8.5" decks · park ready', style: ['Bowl', 'Vert'], width: 149, stock: 'in', thumb: makeThumb('Truck Hi','332b1e') },
+  { sku: 'OJ-ELITE-53', category: 'Wheels', brand: 'OJ Elite', title: 'Elite Hardline 53mm 99a', spec: 'Street profile · V-cut', style: ['Street'], diameter: 53, duro: 99, stock: 'in', thumb: makeThumb('Wheel 53mm','1e2835') },
+  { sku: 'OJ-ELITE-56', category: 'Wheels', brand: 'OJ Elite', title: 'Elite Mini Combo 56mm 97a', spec: 'Bowl profile · rounded lip', style: ['All-around', 'Bowl'], diameter: 56, duro: 97, stock: 'low', thumb: makeThumb('Wheel 56mm','2f1e2d') },
+  { sku: 'CRUISER-60-78', category: 'Wheels', brand: 'Flare', title: 'Flare Cruiser 60mm 78a', spec: 'Soft urethane · stoneground', style: ['Cruise'], diameter: 60, duro: 78, stock: 'in', thumb: makeThumb('Cruiser 60mm','1a2b23') },
+  { sku: 'BONES-SS', category: 'Bearings', brand: 'Bones', title: 'Bones Super Swiss 6', spec: 'Built for speed', style: ['All-around', 'Vert'], stock: 'low', thumb: makeThumb('Bearings','1e1f2c') },
+  { sku: 'FIREBALL-BUILT', category: 'Bearings', brand: 'Fireball', title: 'Dragon BUILT Ceramic', spec: 'Built-in spacers', style: ['Cruise', 'Downhill'], stock: 'in', thumb: makeThumb('Bearings','2a1e32') },
+  { sku: 'VENOM-HPF-92', category: 'Bushings', brand: 'Venom', title: 'HPF Street 92a', spec: 'Barrel/Cone set', style: ['Street'], stock: 'in', thumb: makeThumb('Bushings','201f2a') },
+  { sku: 'VENOM-HPF-94', category: 'Bushings', brand: 'Venom', title: 'HPF Downhill 94a', spec: 'Double barrel', style: ['Bowl', 'Vert'], stock: 'backorder', thumb: makeThumb('Bushings','291c1c') },
+  { sku: 'GRIP-MOB-11', category: 'Hardware', brand: 'Mob', title: 'Mob Grip 11" Roll', spec: 'Perforated · clear backing', style: ['All-around'], stock: 'in', thumb: makeThumb('Grip Roll','171c2a') },
+  { sku: 'KIT-STARTER', category: 'Hardware', brand: 'Blast Kits', title: 'Starter Hardware Kit', spec: 'Bolts + spacers + risers', style: ['Street', 'Cruise'], stock: 'in', thumb: makeThumb('Hardware Kit','2d211a') },
+  { sku: 'TSG-HELMET', category: 'Apparel', brand: 'TSG', title: 'TSG Evolution Matte', spec: 'Certified helmet', style: ['Bowl', 'Vert'], stock: 'low', thumb: makeThumb('Helmet','1c252a') }
 ];
-
-const categoriesElIds = ['category-grid','brand-row','ticker-track','catalog-grid'];
 
 function renderPersonas() {
   const grid = document.getElementById('persona-grid');
@@ -97,20 +66,13 @@ function renderCategories() {
   });
 }
 
-function renderBrands() {}
-function renderLogoStrip() {
-  const strip = document.getElementById('logo-strip');
-  if (!strip) return;
-  strip.innerHTML = '';
-  brands.slice(0, 8).forEach(brand => {
-    const chip = document.createElement('div');
-    chip.className = 'logo-chip';
-    chip.textContent = brand;
-    strip.appendChild(chip);
-  });
-}
-
-</span><button class="btn ghost" style="padding:0.35rem 0.9rem;font-size:0.75rem;">View</button>`;
+function renderBrands() {
+  const row = document.getElementById('brand-row');
+  row.innerHTML = '';
+  brands.forEach(brand => {
+    const card = document.createElement('div');
+    card.className = 'brand-card';
+    card.innerHTML = `<span>${brand}</span><button class="btn ghost" style="padding:0.35rem 0.9rem;font-size:0.75rem;">View</button>`;
     row.appendChild(card);
   });
 }
@@ -152,9 +114,7 @@ function renderCatalog(filter = {}) {
     if (item.width) badges.push(`${item.width}"`);
     if (item.diameter) badges.push(`${item.diameter}mm`);
     if (item.duro) badges.push(`${item.duro}a`);
-    const thumb = `<div class="product-thumb" style="background:${item.thumb}"></div>`;
     card.innerHTML = `
-      ${thumb}
       <div class="stock-pill ${item.stock}">${stockLabel(item.stock)}</div>
       <h4>${item.brand}</h4>
       <h3>${item.title}</h3>
@@ -171,7 +131,7 @@ function renderCatalog(filter = {}) {
   });
 }
 
-function openCalculator() {
+function openCalculator(category, sku) {
   document.getElementById('finder').scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -240,18 +200,17 @@ function matchesDeck(range, item) {
   return Math.abs(item.width - parseFloat(parts[0])) < 0.1;
 }
 
-function mapStyle(styleKey) {
-  const map = { street: 'Street', all: 'All-around', bowl: 'Bowl', vert: 'Vert', cruise: 'Cruise' };
-  return map[styleKey] || 'Street';
-}
-
 function findBestMatches(styleKey, deckRange) {
-  const styleLabel = mapStyle(styleKey);
-  const deck = catalog.find(item => item.category === 'Decks' && matchesDeck(deckRange, item) && item.style?.includes(styleLabel));
-  const truck = catalog.find(item => item.category === 'Trucks' && item.style?.includes(styleLabel));
-  const wheel = catalog.find(item => item.category === 'Wheels' && item.style?.includes(styleLabel));
+  const deck = catalog.find(item => item.category === 'Decks' && matchesDeck(deckRange, item) && item.style?.map(s => s.toLowerCase()).includes(mapStyle(styleKey)));
+  const truck = catalog.find(item => item.category === 'Trucks' && item.style?.map(s => s.toLowerCase()).includes(mapStyle(styleKey)) && (deck ? Math.abs(item.width - deck.width * 16) < 30 || Math.abs(item.width - deck.width * 10) < 40 : true));
+  const wheel = catalog.find(item => item.category === 'Wheels' && item.style?.map(s => s.toLowerCase()).includes(mapStyle(styleKey)));
   const bearings = catalog.find(item => item.category === 'Bearings');
   return { deck, truck, wheel, bearings };
+}
+
+function mapStyle(styleKey) {
+  const map = { street: 'street', all: 'all-around', bowl: 'bowl', vert: 'vert', cruise: 'cruise' };
+  return map[styleKey] || 'street';
 }
 
 function renderResult(cards) {
@@ -269,13 +228,7 @@ function renderPicks(picks) {
   const container = document.getElementById('result-picks');
   container.innerHTML = '';
   Object.entries(picks).forEach(([key, item]) => {
-    if (!item) {
-      const fallback = document.createElement('div');
-      fallback.className = 'pick-card';
-      fallback.innerHTML = `<div><strong>${key.charAt(0).toUpperCase() + key.slice(1)}</strong>No direct match · show alternatives</div>`;
-      container.appendChild(fallback);
-      return;
-    }
+    if (!item) return;
     const div = document.createElement('div');
     div.className = 'pick-card';
     div.innerHTML = `<div><strong>${key.charAt(0).toUpperCase() + key.slice(1)}</strong>${item.brand} · ${item.title}</div><div class="stock-pill ${item.stock}">${stockLabel(item.stock)}</div>`;
@@ -307,8 +260,12 @@ function handleFormSubmit(event) {
   const bearings = ranges.bearings(skill);
   const bushings = ranges.bushings(weight);
 
-  renderResult(buildResultCards({ deckRange, truckRange, wheelRange, bearings, bushings, profile, height }));
-  renderPicks(findBestMatches(style, deckRange));
+  const cards = buildResultCards({ deckRange, truckRange, wheelRange, bearings, bushings, profile, height });
+  renderResult(cards);
+
+  const picks = findBestMatches(style, deckRange);
+  renderPicks(picks);
+
   document.getElementById('results').classList.remove('hidden');
 }
 
@@ -330,7 +287,6 @@ window.addEventListener('DOMContentLoaded', () => {
   renderPersonas();
   renderCategories();
   renderBrands();
-  renderLogoStrip();
   renderTicker();
   renderCatalog();
   initFilters();
