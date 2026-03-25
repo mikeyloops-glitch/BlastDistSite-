@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blast Distribution · Skateboard Setup Finder</title>
+  <title>Blast Distribution · Wholesale Skateboard Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,68 +12,108 @@
 <body>
   <header class="hero">
     <div class="hero__content">
-      <p class="eyebrow">Blast Distribution · 2026 Preview</p>
-      <h1>Help every rider land on the right setup in three taps.</h1>
-      <p class="lead">Educate shoppers, auto-build bundles, and hand sales a ready-to-close lead with a data-backed recommendation.</p>
+      <p class="eyebrow">Blast Distribution · 2026 wholesale experience</p>
+      <h1>Europe’s skate catalog with dopamine-level merchandising.</h1>
+      <p class="lead">Live stock signals, a smart setup calculator, and a catalog inspired by the Blast playbook—rebuilt with premium motion and instant buying confidence.</p>
       <div class="hero__ctas">
-        <button class="btn primary" onclick="scrollToFinder()">Launch setup finder</button>
-        <button class="btn ghost" onclick="scrollToSection('personas')">See personas</button>
+        <button class="btn primary" onclick="scrollToSection('catalog')">Browse live catalog</button>
+        <button class="btn ghost" onclick="scrollToFinder()">Launch setup calculator</button>
       </div>
       <div class="stat-row">
         <div>
-          <h3>+37%</h3>
-          <p>conversion lift in pilot stores</p>
+          <h3>12</h3>
+          <p>core categories ready to demo</p>
         </div>
         <div>
           <h3>120+</h3>
-          <p>brands mapped to fit profiles</p>
+          <p>brands in placeholder grid</p>
         </div>
         <div>
-          <h3><span class="accent">Live demo ready</span></h3>
-          <p>Vercel-ready bundle</p>
+          <h3>Realtime</h3>
+          <p>stock + compatibility cues</p>
         </div>
       </div>
     </div>
     <div class="hero__panel">
-      <p class="panel-title">Live outputs</p>
+      <p class="panel-title">Live calculator snapshot</p>
       <ul class="panel-list">
-        <li><strong>Deck width:</strong> 8.125–8.25" (Street Control)</li>
-        <li><strong>Truck size:</strong> 139 mm Hollow</li>
+        <li><strong>Inputs:</strong> shoe 9, 72 kg, street</li>
+        <li><strong>Deck:</strong> 8.125–8.25" · VX Team Spectrum</li>
+        <li><strong>Trucks:</strong> 139 hollow forged · Stage XI</li>
         <li><strong>Wheels:</strong> 53 mm · 99a · Dragon Formula</li>
-        <li><strong>Bushings:</strong> 90a / 92a split</li>
-        <li><strong>CTA:</strong> Auto-build bundle + talk to sales</li>
+        <li><strong>Bushings:</strong> 92a split · 1/8" riser optional</li>
       </ul>
-      <p class="panel-note">Generated from shoe size, weight, height, style, skill.</p>
+      <p class="panel-note">Every output pulls from the same catalog + stock data the buyer sees.</p>
     </div>
   </header>
 
-  <section class="section" id="why">
+  <section class="ticker" id="stock-ticker">
+    <div class="ticker__track" id="ticker-track"></div>
+  </section>
+
+  <section class="section" id="categories">
     <div class="section__header">
-      <p class="eyebrow">Why Blast 2.0</p>
-      <h2>Borrow what works from the wholesale portal, add a smarter guided shop.</h2>
-      <p>The new site keeps the brand-first catalog you already run on b2b.blast-distribution.it but wraps it in a rider-friendly flow that educates and converts.</p>
+      <p class="eyebrow">Catalog depth</p>
+      <h2>Retail-ready categories with instant specs and stock pills.</h2>
     </div>
-    <div class="grid three">
-      <article class="card">
-        <h3>Keep</h3>
-        <p>Brand carousel, rich taxonomy (Skate / Longboard / Protection), and trust cues for retailers.</p>
-      </article>
-      <article class="card">
-        <h3>Improve</h3>
-        <p>Add guided filters (width, wheel size, skill) + cross-sells so PDPs tell shoppers exactly what else they need.</p>
-      </article>
-      <article class="card">
-        <h3>Change</h3>
-        <p>Lead with the setup finder + educational stories. No login wall for marketing pages, faster CTAs for sales.</p>
-      </article>
+    <div class="grid four" id="category-grid"></div>
+  </section>
+
+  <section class="section" id="brands">
+    <div class="section__header">
+      <p class="eyebrow">Featured partners</p>
+      <h2>Modern layout that keeps the Blast-style brand wall but upgrades its usability.</h2>
+    </div>
+    <div class="brand-row" id="brand-row"></div>
+  </section>
+
+  <section class="section" id="catalog">
+    <div class="section__header">
+      <p class="eyebrow">Live catalog</p>
+      <h2>Hover-rich product cards with quick specs, stock pills, calculator shortcuts, and quote/add-to-cart CTAs.</h2>
+    </div>
+    <div class="catalog-shell">
+      <aside class="filters">
+        <h3>Filters</h3>
+        <label>Riding style
+          <select id="filter-style">
+            <option value="all">All styles</option>
+            <option value="Street">Street</option>
+            <option value="All-around">All-around</option>
+            <option value="Bowl">Bowl / Park</option>
+            <option value="Vert">Vert / Ramp</option>
+            <option value="Cruise">Cruiser</option>
+          </select>
+        </label>
+        <label>Stock status
+          <select id="filter-stock">
+            <option value="all">Any stock</option>
+            <option value="in">In stock</option>
+            <option value="low">Low stock</option>
+            <option value="backorder">Backorder</option>
+          </select>
+        </label>
+        <label>Category
+          <select id="filter-category">
+            <option value="all">All products</option>
+            <option value="Decks">Decks</option>
+            <option value="Trucks">Trucks</option>
+            <option value="Wheels">Wheels</option>
+            <option value="Bearings">Bearings</option>
+            <option value="Hardware">Hardware</option>
+            <option value="Bushings">Bushings</option>
+            <option value="Apparel">Apparel</option>
+          </select>
+        </label>
+      </aside>
+      <div class="catalog-grid" id="catalog-grid"></div>
     </div>
   </section>
 
   <section class="section" id="finder">
     <div class="section__header">
-      <p class="eyebrow">Setup finder</p>
-      <h2>Let the rider answer five questions. We’ll do the rest.</h2>
-      <p>Inputs are mapped to the research-backed matrix (Boardcoast size guide + Stoked Ride Shop component ranges). Output cards can push shoppers straight into curated completes or bundle builders.</p>
+      <p class="eyebrow">Setup calculator</p>
+      <h2>Deck-first wizard that auto-selects compatible trucks, wheels, and bushings with live availability.</h2>
     </div>
     <div class="finder">
       <form id="setup-form">
@@ -95,6 +135,13 @@
             <option value="cruise">Cruiser / Commute</option>
           </select>
         </label>
+        <label>Truck profile
+          <select name="profile" required>
+            <option value="mid">Mid (default)</option>
+            <option value="low">Low</option>
+            <option value="hi">Hi / RKP</option>
+          </select>
+        </label>
         <label>Skill level
           <select name="skill" required>
             <option value="beginner">Beginner</option>
@@ -102,14 +149,15 @@
             <option value="advanced">Advanced</option>
           </select>
         </label>
-        <button class="btn primary" type="submit">Generate recommendation</button>
+        <button class="btn primary" type="submit">Generate setup</button>
       </form>
       <div id="results" class="results hidden">
         <h3>Your fit</h3>
         <div class="result-cards" id="result-cards"></div>
+        <div class="result-picks" id="result-picks"></div>
         <div class="cta-row">
-          <button class="btn primary">View curated complete</button>
-          <button class="btn ghost">Talk to sales</button>
+          <button class="btn primary">Add to wholesale cart</button>
+          <button class="btn ghost">Send spec to rep</button>
         </div>
       </div>
     </div>
@@ -118,8 +166,7 @@
   <section class="section" id="personas">
     <div class="section__header">
       <p class="eyebrow">Personas</p>
-      <h2>Every output maps to a buyer story + ready-to-sell bundle.</h2>
-      <p>Use these cards in decks, PDPs, and sales collateral.</p>
+      <h2>Bundle-ready rider archetypes to guide content + sales.</h2>
     </div>
     <div class="grid three" id="persona-grid"></div>
   </section>
@@ -127,24 +174,24 @@
   <section class="section" id="next">
     <div class="grid two">
       <article class="card">
-        <h2>Roadmap to go live</h2>
+        <h2>Roadmap to production</h2>
         <ul class="checklist">
-          <li><span>✓</span> Research + recommendation matrix</li>
-          <li><span>✓</span> Front-end proof-of-concept</li>
-          <li><span>→</span> Wire repo to Vercel + CMS seeds</li>
-          <li><span>→</span> Product data ingestion + CRM triggers</li>
+          <li><span>✓</span> Research + blueprint (docs/blueprint.md)</li>
+          <li><span>→</span> Componentized Next.js build + CMS</li>
+          <li><span>→</span> Stock API + retailer accounts</li>
+          <li><span>→</span> CRM + quote automation</li>
         </ul>
       </article>
       <article class="card accent">
-        <h2>What you’ll show Blast</h2>
-        <p>Live calculator, refreshed hero, persona bundles, and a staged CTA that routes into sales or auto-builds a cart. Drop the Vercel link into the call and let the client click through in real time.</p>
-        <button class="btn primary" onclick="alert('Staging deploy happens via Vercel once repo is connected.')">Deploy via Vercel</button>
+        <h2>Wholesale CTA</h2>
+        <p>Ready to give Blast a higher-converting storefront? This demo is designed so you can drag it into Vercel today and ship iteratively.</p>
+        <button class="btn primary" onclick="alert('Connect GitHub repo to Vercel · root deploy · done.')">Deploy this build</button>
       </article>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 Blast Distribution · Demo experience for buyer conversations</p>
+    <p>© 2026 Placeholder Distribution · Demo for BlastDistribution pitch</p>
   </footer>
   <script src="app.js"></script>
 </body>
