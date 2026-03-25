@@ -97,13 +97,20 @@ function renderCategories() {
   });
 }
 
-function renderBrands() {
-  const row = document.getElementById('brand-row');
-  row.innerHTML = '';
-  brands.forEach(brand => {
-    const card = document.createElement('div');
-    card.className = 'brand-card';
-    card.innerHTML = `<span>${brand}</span><button class="btn ghost" style="padding:0.35rem 0.9rem;font-size:0.75rem;">View</button>`;
+function renderBrands() {}
+function renderLogoStrip() {
+  const strip = document.getElementById('logo-strip');
+  if (!strip) return;
+  strip.innerHTML = '';
+  brands.slice(0, 8).forEach(brand => {
+    const chip = document.createElement('div');
+    chip.className = 'logo-chip';
+    chip.textContent = brand;
+    strip.appendChild(chip);
+  });
+}
+
+</span><button class="btn ghost" style="padding:0.35rem 0.9rem;font-size:0.75rem;">View</button>`;
     row.appendChild(card);
   });
 }
@@ -323,6 +330,7 @@ window.addEventListener('DOMContentLoaded', () => {
   renderPersonas();
   renderCategories();
   renderBrands();
+  renderLogoStrip();
   renderTicker();
   renderCatalog();
   initFilters();
